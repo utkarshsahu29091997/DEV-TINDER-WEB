@@ -7,23 +7,25 @@ import axios from "axios";
 
 const NavBar = () => {
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     try {
-      await axios.post(BASE_URL + "/logout", {}, {withCredentials: true})
-      dispatch(removeUser())
-      return navigate("/login")
+      await axios.post(BASE_URL + "/logout", {}, { withCredentials: true });
+      dispatch(removeUser());
+      return navigate("/login");
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   return (
     <div className="navbar bg-base-200 shadow-sm">
       <div className="flex-1">
-        <Link to={"/"} className="btn btn-ghost text-xl">daisyUI</Link>
+        <Link to={"/"} className="btn btn-ghost text-xl">
+          👦 Feed
+        </Link>
       </div>
       {user && (
         <>
